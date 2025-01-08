@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Dashbord - News</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'> -->
+    <link rel='stylesheet' type='text/css' media='screen' href='styles/news.css'>
+    <link rel="stylesheet" href="styles/modals.css">
+
+</head>
+<body>
+    <main>
+        <header>
+            <div id="navbar"></div>
+        </header>
+        <section class="scroll">
+            <div class="scroll__titles">
+                <h2 class="scroll__subtitle">Welcome to your</h2>
+                <h1 class="scroll__title">Personal News Outlet</h1>
+            </div>
+            <div class="scroll__content">
+            </div>  
+        </section>
+        <section class="news container">
+            <!-- <h1 class="news__country">Top News by Country</h1> -->
+            <p id="location" class="location">Fetching news for your country...</p>
+            
+            <div class="news__wrapper">
+                <!-- Weekly News Section -->
+                <div class="news__weekly">
+                    <h2 class="news__section">Top News of the Week</h2>
+                    <div id="top-news" class="news__weekly-container"></div>
+                </div>
+        
+                <!-- Monthly News Section -->
+                <div class="news__monthly">
+                    <h2 class="news__section">Top News of the Month</h2>
+                    <div id="monthly-news" class="news__monthly-container"></div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    <footer>
+    </footer>
+    <!-- <script src='main.js'></script>  -->
+    <script src="javascript/modals.js"></script>
+    <script src='javascript/news.js'></script> 
+    <script src="javascript/navbar.js" type="module"></script>
+    <script type="module" src="javascript/auth.js"></script>
+</body>
+</html>

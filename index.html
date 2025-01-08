@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Dashboard</title>
+    <!-- Include your CSS files -->
+    <link rel="stylesheet" href="styles/quotes.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
+    <link rel="stylesheet" href="styles/modals.css">
+</head>
+<body>
+    <header>
+        <div id="navbar"></div>
+    </header>
+
+    <main>
+        <section id="dashboard-content">
+            <h1>Welcome to Your Personal Dashboard</h1>
+            <p>This is where you can manage your tasks, calendar, and more.</p>
+        </section>
+
+        <!-- Today's Events Section -->
+        <section id="today-events-section" style="display: none;">
+            <h2>Your Events for Today</h2>
+            <div id="today-events-container">
+                <!-- Events will be dynamically inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <section id="quote-container">
+        <h2>Quote of the Day</h2>
+        <div id="quote">
+            <p>Loading...</p>
+        </div>
+    </section>
+
+    <!-- Include your JavaScript files -->
+    <script src="javascript/navbar.js" type="module"></script>
+    <script type="module" src="javascript/auth.js"></script>
+    <script type="module" src="javascript/dashboard.js"></script>
+    <script src="javascript/quotes.js"></script>
+</body>
+</html>

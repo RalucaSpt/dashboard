@@ -1,0 +1,371 @@
+/* Root Colors */
+:root {
+    --primary-clr: #b38add;
+    --background-clr: #e2e1dc;
+    --text-clr: #373c4f;
+    --accent-clr: #8f73b0;
+    --outline-clr: #5a5e73;
+}
+
+/* Base Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-clr);
+    color: var(--text-clr);
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 100px 40px 40px 40px; /* Increased top padding to avoid overlap with fixed navbar */
+    max-width: 1200px;
+    margin: 0 auto;
+    border: 2px solid var(--outline-clr); /* Added outline to the container */
+    border-radius: 10px;
+    background-color: #ffffff; /* Optional: To distinguish the main content from the background */
+    box-sizing: border-box;
+}
+
+/* Headings */
+h1, h2 {
+    color: var(--primary-clr);
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+/* Paragraphs */
+p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Dashboard Content Section */
+#dashboard-content {
+    flex: 2; /* Reduced from 2 to allocate more space to today-events-section */
+    padding: 20px;
+}
+
+/* Today's Events Section */
+#today-events-section {
+    flex: 3; /* Increased from 1 to 3 for more space */
+    padding: 20px;
+    border-left: 2px solid var(--outline-clr); /* Separator between sections */
+}
+
+#today-events-section h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#today-events-container {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    min-height: 200px;
+}
+
+/* Event Items */
+.event-item {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-left: 5px solid var(--primary-clr);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    transition: box-shadow 0.3s ease;
+}
+
+.event-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.event-item h3 {
+    margin: 0 0 10px 0;
+    color: var(--text-clr);
+}
+
+.event-item p {
+    margin: 0;
+    color: var(--text-clr);
+}
+
+/* No Events Message */
+#today-events-container p {
+    text-align: center;
+    color: var(--accent-clr);
+    font-style: italic;
+}
+
+/* Quote Section */
+#quote-container {
+    background-color: #f0ede9;
+    padding: 40px 20px;
+    margin: 40px auto;
+    max-width: 800px;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+#quote-container h2 {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#quote {
+    font-style: italic;
+    font-size: 1.5em;
+    color: var(--accent-clr);
+    text-align: center;
+}
+
+#quote p {
+    margin: 0;
+}
+
+/* Navigation Bar */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #373c4f;
+    padding: 15px 30px;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.4);
+    border-bottom: 3px solid #5a5e73;
+    z-index: 1100; /* Ensures the navbar stays above other elements */
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+nav ul li a {
+    color: #e2e1dc;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: block;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+nav ul li a:hover {
+    background-color: var(--primary-clr);
+    transform: translateY(-2px);
+}
+
+/* Login and Signup Links */
+.login-signup {
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+}
+
+.login-signup a {
+    background-color: var(--primary-clr);
+    color: #373c4f;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.login-signup a:hover {
+    background-color: #8f73b0;
+    transform: translateY(-2px);
+}
+
+/* Profile Link */
+#profile-link {
+    background-color: #6e5b9b;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+#profile-link:hover {
+    background-color: #594b7c;
+    transform: translateY(-2px);
+}
+
+/* CSS for Modals */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1200; /* Increased to be above the navbar */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background-color: #ffffff;
+    margin: 8% auto;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 80%;
+    max-width: 450px;
+    position: relative;
+}
+
+.close {
+    color: #333;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--primary-clr);
+}
+
+/* Button Styles */
+button {
+    background-color: var(--primary-clr);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #8f73b0;
+    transform: translateY(-2px);
+}
+
+/* Logout Button Specific Styles */
+#logout-button {
+    background-color: #e74c3c;
+}
+
+#logout-button:hover {
+    background-color: #c0392b;
+}
+
+/* Form Styles */
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    main {
+        max-width: 1000px;
+    }
+}
+
+@media (max-width: 992px) {
+    main {
+        flex-direction: column;
+    }
+    
+    #today-events-section {
+        border-left: none;
+        border-top: 2px solid var(--outline-clr);
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 120px 20px 20px 20px; /* Further increased top padding for smaller screens */
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.75em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    #dashboard-content, #today-events-section {
+        padding: 10px;
+    }
+
+    #today-events-container {
+        min-height: 150px;
+    }
+}
+
+/* Additional Styles for Today Events Section */
+#today-events-container {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    min-height: 200px;
+}
+
+.event-item {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-left: 5px solid var(--primary-clr);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    transition: box-shadow 0.3s ease;
+}
+
+.event-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.event-item h3 {
+    margin: 0 0 10px 0;
+    color: var(--text-clr);
+}
+
+.event-item p {
+    margin: 0;
+    color: var(--text-clr);
+}
+
+/* No Events Message */
+#today-events-container p {
+    text-align: center;
+    color: var(--accent-clr);
+    font-style: italic;
+}

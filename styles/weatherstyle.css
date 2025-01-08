@@ -1,0 +1,463 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #d3d5d6d7;
+    background-size: cover;
+}
+
+.conteiner {
+    background-color: #373c4f;
+    color: azure;
+    padding: 2rem;
+    margin: 4rem auto;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.2);
+    width: 90%;
+    max-width: 800px;
+}
+
+.weatherHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.weatherSearch {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 400px; /* Adjust as needed */
+    margin: 0 auto;
+    gap: 0.5rem; /* Space between input and button */
+}
+
+.weatherSearchForm {
+    flex: 1; /* Allows the input to take up remaining space */
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    color: #373c4f;
+    font-size: 1rem;
+    height: 50px; /* Ensures consistent height with button */
+}
+
+.weatherUnitis {
+    font-size: 1.5rem;
+}
+
+.weatherUnitis span {
+    cursor: pointer;
+}
+
+.weatherUnitis span:first-child {
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+.weatherBody {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.suggestions-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #cccccc0b;
+    max-height: 200px;
+    overflow-y: auto;
+    width: 100%;
+    z-index: 1000;
+    top: 100%;
+    left: 0;
+}
+
+.suggestions-list li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestions-list li:hover {
+    background-color: #f6eeee;
+}
+
+.weatherDateTime {
+    font-size: 14px;
+    margin-bottom: 2rem;
+}
+
+/* General Button Styles */
+button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    display: inline-block;
+}
+
+/* Specific Search Button Styles */
+.search-button {
+    background-color: #b38add;
+    border: none;
+    padding: 0.75rem 1.5rem; /* Increased padding for better size */
+    margin-left: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    font-size: 1.2rem; /* Adjusted font size */
+    height: 50px; /* Matches the input field height */
+}
+
+.search-button i {
+    color: white;
+    font-size: 1.5rem; /* Adjusted icon size */
+}
+
+.search-button:hover {
+    background-color: #a676d1;
+}
+
+.weatherForcast {
+    background-color: #b38add;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    font-weight: bold;
+}
+
+.weatherTemperature {
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.weatherMinMax {
+    display: flex;
+    justify-content: center;
+}
+
+.weatherMinMax p {
+    font-size: 14px;
+    margin: 0.5rem;
+}
+
+.weatherInfo {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.weatherCard {
+    display: flex;
+    align-items: center;
+    background: #b38add;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.weatherCard i {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+
+.weatherCard p {
+    font-size: 0.9rem;
+}
+
+/* Prevent general button styles from affecting search-button */
+button:not(.search-button) {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    display: inline-block;
+}
+
+/* Popup Styles */
+.popup {
+    display: block;
+    position: fixed;
+    text-align: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #373c4f;
+    color: white;
+    border-radius: 10px;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.popup button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #b38add;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popupMap {
+    display: none; /* Ensure the map popup remains hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(45, 43, 43, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+}
+
+.popupContent {
+    position: relative;
+    width: 80%;
+    padding: 2rem;
+    max-width: 50%;
+    background-color: #373c4f;
+    padding: 1rem;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.closePopup {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.5rem;
+    color: #b38add;
+    cursor: pointer;
+}
+
+#popupWeatherMap {
+    width: 100%;
+    height: 100%;
+}
+
+#mapCard {
+    cursor: pointer;
+}
+
+.popupForecast {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 500px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.popupForecast .popupContent {
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+}
+
+.popupForecast .closeForecastPopup {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.forecastCardsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* Media Query for smaller screens (smartphones) */
+@media (max-width: 768px) {
+    .conteiner {
+        padding: 1rem;
+        margin: 2rem auto;
+    }
+    
+    .weatherHeader {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+    }
+    
+    .weatherUnitis {
+        font-size: 1.2rem;
+        margin-top: 3rem;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between; 
+        align-items: center;
+        width: 100%;
+    }
+
+    .weatherUnitCelsius, 
+    .weatherUnitFahrenheit {
+        padding: 0.5rem 1rem;
+        border-radius: 40px;
+        background-color: #b38add;
+        color: azure;
+        cursor: pointer;
+        justify-content: center;
+        text-align: center;
+        flex: 1; 
+        max-width: 50%;
+    }
+
+    .weatherTemperature {
+        font-size: 1.5rem;
+    }
+    
+    .weatherCard i {
+        font-size: 1rem;
+    }
+    
+    .weatherCard p {
+        font-size: 0.8rem;
+    }
+    
+    .weatherInfo {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+    
+    .forecastCardsContainer {
+        flex-direction: column;
+        gap: 5px;
+        margin-top: 10px;
+    }
+
+    .forecastCard {
+        padding: 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .popupMap {
+        display: none; /* Ensure it remains hidden on smaller screens */
+        padding: 0.5rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .popupContent {
+        width: 100%;
+        padding: 0.8rem;
+        border-radius: 10px;
+    }
+
+    #popupWeatherMap {
+        width: 100%;
+        border-radius: 10px;        
+    }
+
+    /* Adjusted Search Button for Mobile */
+    .search-button {
+        padding: 0.5rem 1rem; /* Reduced padding */
+        font-size: 1rem; /* Reduced font size */
+        min-width: 40px; /* Reduced minimum width */
+        min-height: 40px; /* Reduced minimum height */
+        margin-left: 0; /* Remove left margin */
+        width: 100%; /* Full width to stack under input */
+    }
+
+    .search-button i {
+        font-size: 1.2rem; /* Reduced icon size */
+    }
+
+    /* Stack search input and button vertically */
+    .weatherSearch {
+        flex-direction: column; /* Stack items vertically */
+        align-items: stretch; /* Stretch items to full width */
+    }
+
+    .weatherSearchForm {
+        width: 100%; /* Ensure input takes full width */
+        height: 40px; /* Adjust height if needed */
+    }
+}
+
+/* Media Query for larger screens (4K TVs) */
+@media (min-width: 1920px) {
+    .conteiner {
+        padding: 3rem;
+        margin: 6rem auto;
+    }
+    
+    .weatherUnitis {
+        font-size: 2rem;
+    }
+    
+    .weatherTemperature {
+        font-size: 3rem;
+    }
+    
+    .weatherMinMax p {
+        font-size: 1.5rem;
+    }
+    
+    .weatherCard i {
+        font-size: 2rem;
+    }
+    
+    .weatherCard p {
+        font-size: 1.2rem;
+    }
+    
+    .weatherInfo {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .popupMap {
+        padding: 3rem;
+    }
+
+    .popupContent {
+        padding: 2rem;
+        height: 50rem;
+    }
+
+    #popupWeatherMap {
+        height: 100rem;
+        border-radius: 10px;
+    }
+
+    .forecastCardsContainer {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .forecastCard {
+        padding: 1.5rem;
+        font-size: 1.2rem;
+    }
+}

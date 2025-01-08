@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="icon" href="cloudy.png" type="image/png">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    
+    <link rel="stylesheet" href="styles/weatherstyle.css">
+    <link rel="stylesheet" href="styles/modals.css">
+</head>
+<body>
+    <header>
+        <div id="navbar"></div>
+    </header>
+    <div id="location-popup" class="popup">
+        <p>Allow weather to access your location?</p>
+        <button id="accept-location">Yes</button>
+        <button id="deny-location">No</button>
+    </div>
+    
+    <div class="conteiner">
+        <div class="weatherHeader">
+            <form class="weatherSearch">
+                <input type="text" name="city" placeholder="Search for a city" class="weatherSearchForm" autocomplete="off">
+                <button type="submit" class="search-button" aria-label="Search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <ul id="suggestions" class="suggestions-list"></ul>
+            </form>
+            <div class="weatherUnitis">
+                <span class="weatherUnitCelsius">&#176C</span>
+                <span class="weatherUnitFahrenheit">&#176F</span>
+            </div>
+        </div>
+
+        <div class="weatherBody">
+            <h1 class="weatherCity"></h1>
+            <div class="weatherDateTime"></div>
+            <div class="weatherForcast"></div>
+            <div class="weatherIcon"></div>
+            <p class="weatherTemperature">25 &#176C</p>
+            <div class="weatherMinMax"></div>
+        </div>
+
+        <div class="weatherInfo">
+            <div class="weatherCard">
+                <i class="fa-solid fa-temperature-full"></i>
+                <div>
+                    <p>Real Feel</p>
+                    <p class="weatherRealFeel">25&#176C</p>
+                </div>
+            </div>
+
+            <div class="weatherCard">
+                <i class="fa-solid fa-droplet"></i>
+                <div>
+                    <p>Humidity</p>
+                    <p class="weatherHumidity">25&#176C</p>
+                </div>
+            </div>
+
+            <div class="weatherCard">
+                <i class="fa-solid fa-wind"></i>
+                <div>
+                    <p>Wind</p>
+                    <p class="weatherWind">25&#176C</p>
+                </div>
+            </div>
+
+            <div class="weatherCard">
+                <i class="fa-solid fa-gauge-high"></i>
+                <div>
+                    <p>Pressure</p>
+                    <p class="weatherPressure">25&#176C</p>
+                </div>
+            </div>
+            
+            <div class="weatherCard" id="mapCard">
+                <i class="fa-solid fa-map-marker-alt"></i>
+                <div>
+                    <p>Map View</p>
+                    <p class="weatherMapInfo">Click to view</p>
+                </div>
+            </div>
+
+            <div class="weatherCard" id="forecastCard">
+                <i class="fa-solid fa-sun"></i>
+                <p class="forecastTitle">5-Day Forecast</p>
+            </div>
+            
+            <div id="forecastPopup" class="popupForecast">
+                <span class="closeForecastPopup">&times;</span>
+                <div class="forecastCardsContainer"></div>
+            </div>
+
+            <div id="mapPopup" class="popupMap">
+                <div class="popupContent">
+                    <span class="closePopup">&times;</span>
+                    <div id="popupWeatherMap" style="height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://kit.fontawesome.com/dea851747b.js" crossorigin="anonymous"></script>
+    <script src="javascript/weather.js"></script>
+    <script src="javascript/modals.js"></script>
+    <script src="javascript/navbar.js" type="module"></script>
+    <script type="module" src="javascript/auth.js"></script>
+</body>
+</html>
