@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function () {
         <a href="index.html" class="nav-logo">Dashboard</a>
         <ul>
             <li><a href="weather.html">Weather</a></li>
-            <li><a href="currency.html">Currency</a></li>
             <li><a href="myschedule.html">Schedule</a></li>
             <li><a href="news.html">News</a></li>
             <li class="login-signup">
