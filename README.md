@@ -1,4 +1,4 @@
-# Dashboard Personal - [Deploy link](https://ralucaspt.github.io/dashboard/weather.html)
+# Dashboard Personal - [Deploy link](https://ralucaspt.github.io/dashboard/)
 
 Acest proiect este un dashboard interactiv care integrează mai multe funcționalități, printre care:
 - Afișarea condițiilor meteo curente.
