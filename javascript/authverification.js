@@ -23,10 +23,7 @@ const auth = getAuth();
 
 // Verifică starea autentificării
 onAuthStateChanged(auth, (user) => {
-    if (user) {
-        // Utilizatorul este autentificat
-        document.getElementById('content').style.display = 'block';
-    } else {
+    if (!user) {
         // Utilizatorul nu este autentificat
         alert('Trebuie să fii autentificat pentru a accesa această pagină.');
         window.location.href = 'index.html'; // Redirecționează către pagina principală sau de login
